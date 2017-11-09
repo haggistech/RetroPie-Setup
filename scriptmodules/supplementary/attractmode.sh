@@ -147,7 +147,7 @@ function build_attractmode() {
     cd attract
     make clean
     local params=(prefix="$md_inst")
-    isPlatform "rpi" && params+=(EXTRA_CFLAGS="$CFLAGS -I$md_build/sfml-pi/include -L$md_build/sfml-pi/lib")
+    isPlatform "rpi" && params+=(USE_GLES=1 EXTRA_CFLAGS="$CFLAGS -I$md_build/sfml-pi/include -L$md_build/sfml-pi/lib")
     make "${params[@]}"
 
     # remove example configs
